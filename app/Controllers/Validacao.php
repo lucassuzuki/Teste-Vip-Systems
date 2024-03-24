@@ -57,17 +57,19 @@ class Validacao extends BaseController
 
         $db = \Config\Database::connect();
         $builder = $db->table('vip_clientes');
-        $builder->select('mae, dtnasc, id_cliente, nome');
+        $builder->select('mae, dtnasc, id_cliente, nome, foto');
         $builder->where('cpf', $usuario);
 
         $result = $builder->get()->getRow();
         if ($result) {
             $builder->where('senha', $senha);
             $result_valida_senha = $builder->get()->getRow();
+            
             $data = [
                 'id_cliente' => $result->id_cliente,
                 'result_valida_senha' => $result_valida_senha,
             ];
+            
             return ($data);
         }
         return "cpf inválido";

@@ -26,9 +26,9 @@ class Usuario extends BaseController{
 
                 $list = [
                     'nome_mae' => $result['result_valida_senha']->mae,
-                    // 'dia_ano' => $dia . '-' . $ano,
-                    // 'mes_ano' => $mes . '-' . $ano,
-                    // 'dia_mes' => $dia . '-' . $mes,
+                    'dia_ano' => $dia . '-' . $ano,
+                    'mes_ano' => $mes . '-' . $ano,
+                    'dia_mes' => $dia . '-' . $mes,
                 ];
 
                 $chave_aleatorio = array_rand($list);
